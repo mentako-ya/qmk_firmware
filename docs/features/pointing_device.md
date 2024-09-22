@@ -433,6 +433,8 @@ If even smoother scrolling than provided by this default value is desired, first
 
 The function `pointing_device_get_hires_scroll_resolution()` can be called to get the pre-computed resolution multiplier value as a `uint16_t`.
 
+The function `is_hires_scroll_on()` provides a way to determine the state of high resolution scrolling. This function will return `true` if the host computer has sent a feature report indicating that it supports high resolution wheel input.
+
 ::: warning
 High resolution scrolling usually results in larger and/or more frequent mouse reports. This can result in overflow errors and overloading of the host computer's input buffer. 
 To deal with these issues, define `WHEEL_EXTENDED_REPORT` and throttle the rate at which mouse reports are sent.
