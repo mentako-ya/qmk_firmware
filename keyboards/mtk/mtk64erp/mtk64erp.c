@@ -8,6 +8,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #ifdef CONSOLE_ENABLE
 #include <print.h>
 #endif
+#include "pointing_device.h"
 
 
 //////////////////////////////////////////////////////////////////////////////
@@ -469,6 +470,13 @@ void oled_render_auto_mouse(void) {
     oled_write_ln_P(automouse_str, mtk_get_auto_mouse_mode());
 }
 #endif
+char scroll_reso_str[22] = {};
+void oled_render_scroll_reso(void) {
+    snprintf(scroll_reso_str, sizeof(scroll_reso_str), "resolution:%-3d hs:%-1d",
+    pointing_device_get_hires_scroll_resolution(), is_hires_scroll_on());
+    oled_write_ln_P(scroll_reso_str, is_hires_scroll_on());
+}
+
 char rgb_str[22] = {};
 void oled_render_rgb(void) {
     snprintf(rgb_str, sizeof(rgb_str), "r:%-2d h:%-3ds:%-3dv:%-3d",
@@ -529,6 +537,7 @@ bool oled_task_kb(void) {
         oled_render_keylog();
         oled_render_rgb();
         oled_render_pointing();
+        oled_render_scroll_reso();
         oled_render_auto_mouse();
     } else{
 #ifdef SPLIT_LAYER_STATE_ENABLE

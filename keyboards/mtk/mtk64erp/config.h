@@ -41,6 +41,12 @@
 #define AUTO_MOUSE_DEFAULT_LAYER 7          // Index of layer to use as default target layer
 #define AUTO_MOUSE_TIME 1000                // Time layer remains active after activation
 #define AUTO_MOUSE_THRESHOLD 100             // Amount of mouse movement required to switch layers
+
+#define POINTING_DEVICE_HIRES_SCROLL_ENABLE
+#define POINTING_DEVICE_HIRES_SCROLL_MULTIPLIER 120
+#define POINTING_DEVICE_HIRES_SCROLL_EXPONENT 0
+//#define WHEEL_EXTENDED_REPORT
+
 #endif
 
 #define I2C1_SDA_PIN GP2
